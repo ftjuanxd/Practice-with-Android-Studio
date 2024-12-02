@@ -1,0 +1,44 @@
+
+@Composable
+fun MainScreen() {
+    val logo = painterResource(R.drawable.logo_minapp)
+    val banner = painterResource(R.drawable.arrow__2196f3)
+
+    Box(modifier = Modifier.background(background)) {
+        Image(
+            painter = banner,
+            contentDescription = null,
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(top = 295.dp),
+            contentScale = ContentScale.Crop
+        )
+        Column(
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier.fillMaxSize()
+        ) {
+            Image(
+                painter = logo,
+                contentDescription = null,
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .size(200.dp)
+                    .padding(top = 40.dp, start = 25.dp)
+            )
+            ContainerText()
+        }
+    }
+}
+
+@Composable
+fun ContainerText() {
+    Column(
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.padding(10.dp)
+    ) {
+        Text(text = stringResource(R.string.app_name), color = primary, fontSize = 60.sp, fontWeight = FontWeight.Bold)
+        Text(text = stringResource(R.string.lema_app), color = primary, fontSize = 30.sp, fontWeight = FontWeight.W300, textAlign = TextAlign.Center)
+    }
+}

@@ -1,0 +1,73 @@
+@Composable
+fun Acces() {
+    BaseScreen(
+        "PEDESTRIAN ACCESS",
+        R.drawable.notificacion,
+        R.drawable.logo_home,
+        content = {
+            SegmentedButton(
+                {
+                    Components_Acces_Scan()
+                },
+                {
+                    Components_Acces_Text()
+                }
+            )
+        },
+        15.sp,40.dp,80.dp
+    )
+}
+
+@Composable
+fun Components_Acces_Scan(){
+    //variables de los textfield
+    var destiny by remember { mutableStateOf("") }
+    var auto by remember { mutableStateOf("") }
+    var descrip by remember { mutableStateOf("") }
+
+    CheckHold()
+
+    FieldsThemes()
+
+    //Button Submit
+    ButtonApp(stringResource(R.string.button_submit), { print("Hola") })
+    //Line diviser
+    Separetor()
+}
+@Composable
+fun Components_Acces_Text(){
+    //variables de los textfield
+    var Id by remember { mutableStateOf("") }
+    var name by remember { mutableStateOf("") }
+
+    CustomTextField(
+        value = Id,
+        label = "Id",
+        onValueChange = { Id = it },
+        isEnabled = true,
+        KeyboardOptions.Default.copy(
+            keyboardType = KeyboardType.Text,
+            imeAction = ImeAction.Next,
+        )
+    )
+    //TextField Authorization
+    CustomTextField(
+        value = name,
+        label = "Name",
+        onValueChange = { name = it },
+        isEnabled = true,
+        KeyboardOptions.Default.copy(
+            keyboardType = KeyboardType.Text,
+            imeAction = ImeAction.Next,
+        )
+    )
+
+    CheckHold()
+    //TextFieldS
+    FieldsThemes()
+    //Button Submit
+    ButtonApp(stringResource(R.string.button_submit), { print("Hola") })
+    //Line diviser
+    Separetor()
+}
+
